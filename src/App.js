@@ -6,7 +6,7 @@ import {TodoList} from './components/TodoList';
 import {TodoItem} from './components/TodoItem';
 import {CreateTodoButton} from './components/CreateTodoButton';
 const tasks=[
-{'id':1,'text':'tarea 1', 'completed':false},
+{'id':1,'text':'tarea 1', 'completed':true},
 {'id':2,'text':'tarea 2', 'completed':false},
 {'id':3,'text':'tarea 3', 'completed':false}
 
@@ -21,7 +21,7 @@ function App() {
   <TodoSearch/>
   
   <TodoList>
-    {tasks.map(t=>(<TodoItem key={t.id} text={t.text}/>))}
+    {tasks.map(t=>(<TodoItem key={t.id} text={t.text} completed={t.completed}/>))}
     
   </TodoList>
   <CreateTodoButton/>
