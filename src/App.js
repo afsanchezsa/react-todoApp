@@ -24,6 +24,20 @@ function App() {
   }else{
     searchedTodos=tasks.filter(t=>t.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) )
   }
+
+
+  const completeTodo=(text)=>{
+    const todoIndex=tasks.findIndex(todo=>todo.text===text);
+    const newTodos=[...tasks];
+    newTodos[todoIndex].completed=true;
+    setTasks(newTodos);
+  }
+  const deleteTodo=(text)=>{
+    const todoIndex=tasks.findIndex(todo=>todo.text===text);
+    const newTodos=[...tasks];
+    newTodos.splice(todoIndex,1)
+    setTasks(newTodos);
+  }
   return (
     <React.Fragment>
       <TodoCounter
@@ -37,7 +51,8 @@ function App() {
       />
 
       <TodoList>
-        {searchedTodos.map(t => (<TodoItem key={t.id} text={t.text} completed={t.completed} />))}
+        {searchedTodos.map(t => (<TodoItem key={t.id} text={t.text} completed={t.completed} onComplete={()=>completeTodo(t.text)}
+        onDelete={()=>deleteTodo(t.text)}/>))}
 
       </TodoList>
       <CreateTodoButton />
