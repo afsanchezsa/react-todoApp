@@ -12,3 +12,11 @@ ReactDOM.render(
 );
 
 
+ReactDOM.createPortal
+(
+   
+  <App/>
+,
+document.getElementById('modal')
+);
+
