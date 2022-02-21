@@ -5,16 +5,7 @@ import { TodoList } from '../components/TodoList';
 import { TodoItem } from '../components/TodoItem';
 import { CreateTodoButton } from '../components/CreateTodoButton';
 import { TodoContex } from '../TodoContex'
-function AppUI({
-  loading,
-  error,
-  totalTodos,
-  completedTodos,
-  searchValue,
-  setSearchValue,
-  searchedTodos,
-  completeTodo,
-  deleteTodo }) {
+function AppUI() {
   return (
     <React.Fragment>
       <TodoCounter
