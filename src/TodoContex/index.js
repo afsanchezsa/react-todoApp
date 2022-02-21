@@ -34,6 +34,11 @@ function TodoProvider(props) {
         newTodos.splice(todoIndex, 1)
         saveTodos(newTodos);
     }
+    const addTodo=(text)=>{
+        const newTodos=[...tasks]
+        newTodos.push({completed:false,text:text})
+        saveTodos(newTodos)
+    }
     console.log('Render antes del useEffect')
 
     React.useEffect(() => {
@@ -60,7 +65,8 @@ function TodoProvider(props) {
             completeTodo,
             deleteTodo,
             openModal,
-            setOpenModal
+            setOpenModal,
+            addTodo
         }}>
             {props.children}
         </TodoContex.Provider>

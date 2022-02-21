@@ -6,6 +6,7 @@ import { TodoItem } from '../components/TodoItem';
 import { CreateTodoButton } from '../components/CreateTodoButton';
 import { TodoContex } from '../TodoContex'
 import { Modal } from "../components/Modal";
+import {TodoForm} from  "../components/TodoForm"
 function AppUI() {
 
   const value = React.useContext(TodoContex)
@@ -22,7 +23,7 @@ function AppUI() {
       <TodoList>
         {error && <p>Hubo un error....</p>}
         {loading && <p>Estamos cargando....</p>}
-        {searchedTodos.map(t => (<TodoItem key={t.id} text={t.text} completed={t.completed} onComplete={() => completeTodo(t.text)}
+        {!loading && !error && searchedTodos.map(t => (<TodoItem key={t.id} text={t.text} completed={t.completed} onComplete={() => completeTodo(t.text)}
           onDelete={() => deleteTodo(t.text)} />))}
 
       </TodoList>
@@ -30,7 +31,7 @@ function AppUI() {
       
       {openModal&& (
         <Modal>
-        <p>Teletransportacion{searchedTodos[0]?.text}</p>
+        <TodoForm/>
       </Modal>
       )}
       <CreateTodoButton
