@@ -12,13 +12,9 @@ function AppUI() {
 
   return (
     <React.Fragment>
-      <TodoCounter
+      <TodoCounter      />
 
-      />
-
-      <TodoSearch
-
-      />
+      <TodoSearch      />
      
 
                
