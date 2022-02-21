@@ -1,10 +1,6 @@
 import React from 'react';
-import './App.css';
-import { TodoCounter } from '../components/TodoCounter';
-import { TodoSearch } from '../components/TodoSearch';
-import { TodoList } from '../components/TodoList';
-import { TodoItem } from '../components/TodoItem';
-import { CreateTodoButton } from '../components/CreateTodoButton';
+import { AppUI } from './AppUI';
+
 const defaulTasks = [
   { 'id': 1, 'text': 'tarea 1', 'completed': true },
   { 'id': 2, 'text': 'tarea 2', 'completed': false },
@@ -39,26 +35,17 @@ function App() {
     setTasks(newTodos);
   }
   return (
-    <React.Fragment>
-      <TodoCounter
-        total={totalTodos}
-        completed={completedTodos}
-      />
-
-      <TodoSearch
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-      />
-
-      <TodoList>
-        {searchedTodos.map(t => (<TodoItem key={t.id} text={t.text} completed={t.completed} onComplete={()=>completeTodo(t.text)}
-        onDelete={()=>deleteTodo(t.text)}/>))}
-
-      </TodoList>
-      <CreateTodoButton />
-
-    </React.Fragment>
-  );
+   <AppUI
+   totalTodos={totalTodos}
+   completedTodos={completedTodos}
+   searchValue={searchValue}
+   setSearchValue={setSearchValue}
+   searchedTodos={searchedTodos}
+   completeTodo={completeTodo}
+   deleteTodo={deleteTodo}
+   />
+   
+   );
 }
 
 export default App;
